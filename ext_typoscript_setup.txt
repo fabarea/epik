@@ -1,0 +1,16 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:epik/Configuration/TypoScript/setup.txt">
+
+config.tx_extbase {
+	persistence{
+		classes {
+#			TYPO3\CMS\epik\Domain\Model\Equipment {
+#                mapping {
+#                    tableName = tx_epik_domain_model_equipment
+#			        columns {
+#			            transport_other_sepecifications.mapOnProperty = transportOtherSpecifications
+#			        }
+#                }
+#            }
+		}
+	}
+}

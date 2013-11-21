@@ -1,0 +1,325 @@
+<link href="http://fr.wycliffe.ch/epik/demo/css/demo-a.css" rel="stylesheet">
+<link href="http://fr.wycliffe.ch/epik/demo/css/jquery.tipsy.css" rel="stylesheet">
+
+<script type="text/javascript" src="http://fr.wycliffe.ch/epik/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://fr.wycliffe.ch/epik/demo/bootstrap/js/bootstrap-dropdown.js"></script>
+<script type="text/javascript" src="http://fr.wycliffe.ch/epik/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="http://fr.wycliffe.ch/epik/js/jquery.tipsy.js"></script>
+<!--<script type="text/javascript" src="http://fr.wycliffe.ch/epik/js/jquery.scrollto.min.js"></script>-->
+<script type="text/javascript" src="http://fr.wycliffe.ch/epik/js/epik-0.9.6.js"></script>
+<script type="text/javascript" src="http://fr.wycliffe.ch/epik/js/jquery.validate.localized.messages.de.js"></script>
+
+
+<script type="text/javascript">
+
+console.log($);
+var epik;
+$().ready(function() {
+	var epikOptions = new Object();
+	epikOptions['error_url'] = 'http://localhost/epik/demo/error.html';
+	epikOptions['cancel_url'] = 'http://localhost/epik/demo/cancel.html';
+	epikOptions['success_url'] = 'http://localhost/epik/demo/success.html';
+	epikOptions['pollstatus_url'] = 'http://localhost/epik/demo/pollstatus.php';
+	epikOptions['apiendpoint'] = 'https://dds-pay.getunik.net/epayment/api/step/pay/merchant/XXXXXXXXXX';
+	epikOptions['test_mode'] = 'true';
+	epikOptions['method'] = 'POST';
+	epikOptions['mobile_mode'] = 'false';
+	epikOptions['enable_jquery'] = 'true';
+	epikOptions['iframe_container'] = 'iframe_wrapper';
+	epikOptions['trigger_event'] = 'click';
+	epikOptions['auto_submit'] = 'true';
+	epikOptions['currency'] = 'chf';
+	epikOptions['language'] = 'de';
+	epikOptions['iframe_loading_page'] = 'wait.html';
+	epikOptions['popup'] = 'true';
+
+	epik = new EPIK("epp", epikOptions);
+
+	initepik(epik);
+
+	var donationform = $("#epp");
+
+	$(".section").bind("click", function(e) {
+		if ($(this).hasClass("step-overlay")) {
+			var step = $(this).attr("step");
+			$('.tipsy').fadeOut(200);
+			if (step == "1") {
+				enable($("#section1"));
+				$("#section2").fadeOut(300);
+				$("#section3").fadeOut(300);
+				$("#section4").fadeOut(300);
+				$("#section5").fadeOut(300);
+			} else if (step == "2") {
+				enable($("#section2"));
+				$("#section3").fadeOut(300);
+				$("#section4").fadeOut(300);
+				$("#section5").fadeOut(300);
+			} else if (step == "3") {
+				enable($("#section3"));
+				$("#section4").fadeOut(300);
+				$("#section5").fadeOut(300);
+			} else if (step == "4") {
+				enable($("#section4"));
+				$("#section5").fadeOut(300);
+			}
+
+		}
+	});
+
+	$(".section .epp-btn").bind("click", function(e) {
+		e.stopPropagation();
+		e.preventDefault();
+		if (!donationform.valid()) {
+			return;
+		}
+		$(".tipsy").fadeOut();
+
+
+		var currentSection = $(this).parents("div.section");
+		var step = currentSection.attr("step");
+		if (step == "1") {
+			var nextSection = $("#section2");
+		} else if (step == "2") {
+			var nextSection = $("#section3");
+		} else if (step == "3") {
+			var nextSection = $("#section4");
+		} else if (step == "4") {
+			var nextSection = $("#section5");
+		}
+
+		if (step != "5" && typeof(nextSection) != "undefined") {
+			nextSection.removeClass("step-overlay");
+			nextSection.find(".section-body").show();
+			nextSection.slideDown();
+			nextSection.find(".epp-btn").fadeIn();
+			nextSection.removeClass("hidden");
+			disable(currentSection);
+			currentSection.find(".section-body").slideUp();
+			if (step == "3") {
+				var recurring = $("input.recurring:checked").val();
+				var amount = $("input[name='amount']:checked").val();
+				if (recurring == "false") {
+					showAllPaymentMethods();
+				}
+
+				if (amount >= 10000 && !(recurring == "true")) {
+					hideSms();
+				} else if (amount < 10000 && !( recurring == "true")) {
+					showSms();
+				}
+			}
+		} else if (step == "5") {
+			updateEpikFields();
+			donationform.submit();
+			$(".section").not(".iframeSection").slideUp();
+			$(".iframeSection").slideDown().removeClass("hidden");
+		}
+//		$.scrollTo("max");
+	});
+
+	$("#free_amount").bind("click", function() {
+		$("#amount_free")[0].checked = true;
+		$("#free_amount").addClass("required");
+	});
+
+	$("#free_amount").bind("focus", function() {
+		$("#amount_free")[0].checked = true;
+		$("#free_amount").addClass("required");
+	});
+
+	$("input[name='amount']").bind("change", function() {
+		if (this.id == "amount_free") {
+			$("#free_amount").addClass("required");
+			$("#free_amount").focus();
+		} else {
+			$("#free_amount").removeClass("required");
+			$("#free_amount").val("");
+			$(".tipsy").fadeOut();
+		}
+	});
+
+	$("#free_amount").bind("keyup", function() {
+		var tempAmount = $("#free_amount").val() + "00";
+		$("#amount_free").val(tempAmount);
+		if (tempAmount == 500 || tempAmount == 2000 || tempAmount == 5000) {
+			epik.options.amount = tempAmount;
+		} else {
+			epik.setAmount(tempAmount);
+		}
+
+	});
+
+
+	$("#section4 div.epp-row input").bind("change", function() {
+		var ccSelection = $(".epp-cc-selection");
+		var clicked = $(this).val();
+		if (clicked == "cc") {
+			if (ccSelection.hasClass("hidden")) {
+				ccSelection.slideDown(400);
+				ccSelection.removeClass("hidden");
+				epik.setPaymentMethod("vis");
+			}
+		} else if (!(clicked == "vis" || clicked == "eca" || clicked == "amx")) {
+			ccSelection.slideUp(400, function() {
+				ccSelection.addClass("hidden")
+			});
+			$("#pmethod_cc")[0].checked = false;
+		}
+		$("#section4 .epp-row input.not(#pmethod_vis)").each(function() {
+			$(this)[0].checked = false;
+		});
+		if (clicked == "vis" || clicked == "eca" || clicked == "amx") {
+			$(".epp-row input[name='payment_method_cc']")[0].checked = true;
+		}
+		$(this)[0].checked = true;
+	});
+
+
+	$("#type_recurring").bind("click", function() {
+		$("div.recurring").slideDown();
+		$("div.recurring").removeClass("hidden");
+		$("#stored_customer_email").addClass("required email");
+		hideAllNonRecurring();
+	});
+
+	$("#type_single").bind("click", function() {
+		$("div.recurring").slideUp(300, function() {
+			$("div.recurring").addClass("hidden");
+			$("#stored_customer_email").removeClass("required email");
+			donationform.validate().showErrors();
+		});
+	});
+
+	$("#anonym_no").bind("click", function() {
+		$("div.adress input").each(
+				function() {
+					if (this.name == "email") {
+						$(this).removeClass("email");
+					} else if (this.name == "postcode") {
+						$(this).removeClass("digits");
+					} else {
+						$(this).removeClass("required");
+					}
+					$(this).removeClass("error");
+				}
+		);
+		$('.tipsy').fadeOut(300);
+		$("div.address").slideUp(300, function() {
+//			$.scrollTo("max");
+		});
+	});
+
+	$("#anonym_yes").bind("click", function() {
+		$("div.address").slideDown(300, function() {
+//			$.scrollTo("max");
+		});
+		$("div.address input").each(
+				function() {
+					if (this.name == "email") {
+						$(this).addClass("email");
+					} else if (this.name != "address2" && this.name != "postcode" && this.name != "stored_emailpermission") {
+						$(this).addClass("required");
+					} else if (this.name == "postcode") {
+						$(this).addClass("digits");
+					}
+				}
+		);
+	});
+
+	var validator = donationform.validate({
+		errorElement: "div",
+		errorPlacement: function(error, element) {
+			var orientation = "w";
+			if ($(element).attr("name") == "stored_customer_title") {
+				var el = $("label[for='salutation_2']");
+			} else if ($(element).attr("name") == "free_amount") {
+				var el = $("label[for='free_amount']");
+			} else {
+				var el = $(element);
+			}
+			if (el.attr("name") == "stored_customer_zip_code") {
+				orientation = "e";
+			}
+			el.attr('original-title', error.html());
+			el.tipsy({title: function() {
+				return this.getAttribute('original-title')
+			}, fade: false, delayOut: 1000, trigger: 'manual', html: true, gravity: orientation});
+			el.tipsy('show');
+		},
+		unhighlight: function(element, errorClass, validClass) {
+			if ($(element).attr("name") == "stored_customer_title") {
+				$("label[for='salutation_2']").tipsy('hide');
+			} else {
+				$(element).tipsy('hide');
+			}
+		}
+	});
+
+	initform(donationform);
+
+});
+
+function moveTipsy() {
+	if ($(".error").length > 0) {
+		$("#epp").validate().showErrors();
+	}
+}
+function disable(section) {
+	section.addClass("step-overlay")
+	section.find(".epp-btn").hide();
+}
+
+function enable(section) {
+	section.find(".section-body").slideDown(200, function() {
+		section.find(".epp-btn").fadeIn(200);
+	});
+
+	section.removeClass("step-overlay");
+}
+
+function showAllPaymentMethods() {
+	$("#pmethod_ezs").parent().show();
+	$("#pmethod_pos").parent().show();
+	$("#pmethod_pex").parent().show();
+	showSms();
+	$("#pmethod_ezs").click();
+}
+
+function hideAllNonRecurring() {
+	$("#pmethod_cc").click();
+	$("#pmethod_ezs").parent().hide();
+	$("#pmethod_pos").parent().hide();
+	$("#pmethod_pex").parent().hide();
+	hideSms();
+
+}
+
+function hideSms() {
+	$("#pmethod_sms").parent().hide();
+}
+
+function showSms() {
+	$("#pmethod_sms").parent().show();
+}
+
+function initform(form) {
+	form.get(0).reset();
+	epik.setPaymentMethod("ezs");
+}
+
+function initepik(epik) {
+	epik.updateForm();
+}
+
+function updateEpikFields() {
+	epik.setPayerLine(1, $("#section5 input[name='stored_customer_firstname']").val() + " " + $("#section5 input[name='stored_customer_lastname']").val());
+	epik.setPayerLine(2, $("#section5 input[name='stored_customer_street']").val());
+	epik.setPayerLine(3, $("#section5 input[name='stored_customer_street2']").val());
+	epik.setPayerLine(4, $("#section5 input[name='stored_customer_zip_code']").val() + " " + $("#section5 input[name='stored_customer_city']").val());
+	epik.setRefNo("123456789");
+}
+
+</script>
+
+
+<f:render section="main" />

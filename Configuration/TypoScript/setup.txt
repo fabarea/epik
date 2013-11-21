@@ -1,0 +1,17 @@
+plugin.tx_epik {
+	view {
+		templateRootPath = {$plugin.tx_epik.view.templateRootPath}
+		partialRootPath = {$plugin.tx_epik.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_epik.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_epik.persistence.storagePid}
+	}
+
+	settings {
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}

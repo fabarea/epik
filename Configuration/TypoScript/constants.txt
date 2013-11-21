@@ -1,0 +1,14 @@
+plugin.tx_epik {
+	view {
+		# cat=plugin.tx_epik/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:epik/Resources/Private/Templates/
+		# cat=plugin.tx_epik/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:epik/Resources/Private/Partials/
+		# cat=plugin.tx_epik/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:epik/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_epik//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="" product-name="local lang module">
+		<header/>
+		<body>
+			<!-- labels for BE module integration with TYPO3 -->
+			<trans-unit id="mlang_labels_tablabel">
+				<source>People</source>
+			</trans-unit>
+			<trans-unit id="mlang_tabs_tab" xml:space="preserve">
+				<source>People</source>
+			</trans-unit>
+			<trans-unit id="mlang_labels_tabdescr" xml:space="preserve">
+				<source>Module for managing People</source>
+			</trans-unit>
+
+			<trans-unit id="tt_address.uid" xml:space="preserve">
+				<source>Uid</source>
+			</trans-unit>
+			<trans-unit id="tt_address.telephone" xml:space="preserve">
+				<source>Telephone</source>
+			</trans-unit>
+			<trans-unit id="tt_address.image" xml:space="preserve">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tt_address.comment" xml:space="preserve">
+				<source>Comment</source>
+			</trans-unit>
+			<trans-unit id="tt_address.country_affected" xml:space="preserve">
+				<source>Country Affected</source>
+			</trans-unit>
+			<trans-unit id="tt_address.info" xml:space="preserve">
+				<source>Info</source>
+			</trans-unit>
+			<trans-unit id="tt_address.info_de" xml:space="preserve">
+				<source>Info De</source>
+			</trans-unit>
+			<trans-unit id="tt_address.info_fr" xml:space="preserve">
+				<source>Info Fr</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,269 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers"
+      xmlns:e="http://typo3.org/ns/TYPO3/CMS/Epik/ViewHelpers">
+<f:layout name="Default"/>
+
+<f:section name="main">
+
+
+	<div class="epp-form-wrapper row-fluid">
+		<form method="post" id="epp" action="">
+			<fieldset>
+				<input type="hidden" name="currency" value="chf"/>
+				<input type="hidden" name="language" value="de"/>
+				<input type="hidden" name="css_url" value="http://localhost/epik/demo/css/demo.css"/>
+
+				<div id="section1" class="section" step="1">
+					<h3>Spendenzweck</h3>
+
+					<div class="section-body">
+						<h4>Spendenzweck</h4>
+
+						<div class="epp-row">
+							<input class="radio" type="radio" value="1" name="stored_campaign" checked="checked"
+							       id="reason_most_needed"/><label for="reason_most_needed">Wo die Hilfe am Dringesten ben&ouml;tigt
+							wird</label>
+						</div>
+						<div class="epp-row">
+							<input class="radio" type="radio" value="2" name="stored_campaign" id="reason_schools"/><label
+								for="reason_schools">Schule und Bildung</label>
+
+						</div>
+						<div class="epp-row">
+							<input class="radio" type="radio" value="3" name="stored_campaign" id="reason_haiti"/><label
+								for="reason_haiti">Nothilfe (Haiti)</label>
+						</div>
+					</div>
+					<div class="epp-submit">
+						<input class="epp-btn" type="submit" value="Weiter"/>
+					</div>
+				</div>
+
+				<div id="section2" class="section hidden" step="2">
+					<h3>Rhythmus</h3>
+
+					<div class="section-body">
+						<h4>Bitte w&auml;hlen Sie die Art ihrer Spende</h4>
+
+						<div class="epp-row">
+							<input class="radio recurring" type="radio" value="false" name="recurring" checked="checked"
+							       id="type_single"/><label for="type_single">Einmalige Spende</label>
+						</div>
+
+						<div class="epp-row">
+							<input class="radio recurring" type="radio" value="true" name="recurring" id="type_recurring"/><label
+								for="type_recurring">Regelm&auml;ssige Spende</label>
+						</div>
+						<div class="epp-row recurring hidden">
+							<input class="radio" type="radio" value="* * *" name="recurring_interval"
+							       id="recurring_interval_daily"/><label for="recurring_interval_daily">daily</label>
+							<input class="radio" type="radio" checked="checked" value="L * *" name="recurring_interval"
+							       id="recurring_interval_monthly"/><label for="recurring_interval_monthly">monthly</label>
+							<input class="radio" type="radio" value="L */3 *" name="recurring_interval"
+							       id="recurring_interval_quarterly"/><label for="recurring_interval_quarterly">quarterly</label>
+
+						</div>
+						<div class="epp-row recurring hidden">
+							<label for="stored_customer_email" class="left">Email:</label> <input class="" type="text" value=""
+							                                                                      name="stored_customer_email"
+							                                                                      id="stored_customer_email"/>
+						</div>
+					</div>
+					<div class="epp-submit">
+						<input class="epp-btn" type="submit" value="Weiter"/>
+					</div>
+				</div>
+
+				<div id="section3" class="section hidden" step="3">
+					<h3>Spendenbetrag</h3>
+
+					<div class="section-body">
+						<h4>Bitte w&auml;hlen Sie die H&ouml;he Ihrer Spende</h4>
+
+						<div class="epp-row">
+
+							<input class="radio " type="radio" value="500" name="amount" checked="checked" id="amount_500"/><label
+								for="amount_500">CHF 5</label>
+						</div>
+						<div class="epp-row">
+							<input class="radio " type="radio" value="2000" name="amount" id="amount_2000"/><label
+								for="amount_2000">CHF 20</label>
+						</div>
+						<div class="epp-row">
+							<input class="radio " type="radio" value="5000" name="amount" id="amount_5000"/><label
+								for="amount_5000">CHF 50</label>
+
+						</div>
+						<div class="epp-row">
+							<input class="radio" type="radio" value="" name="amount" id="amount_free"/><label for="amount_free">Anderer
+							Betrag:</label><input type="text" name="free_amount" id="free_amount" value="" class="numeric short"
+							                      min="1" max="999999" minlength="1"/><label class="right" for="free_amount">
+							CHF </label>
+						</div>
+					</div>
+					<div class="epp-submit">
+						<input class="epp-btn" type="submit" value="Weiter"/>
+
+					</div>
+				</div>
+
+				<div id="section4" class="section hidden" step="4">
+					<h3>Zahlungsmethode</h3>
+
+					<div class="section-body">
+						<h4>Wie wollen Sie spenden?</h4>
+
+						<div class="epp-row">
+
+							<label class=""></label><input type="radio" checked="checked" name="payment_method" value="ezs"
+							                               id="pmethod_ezs" class="required radio"/><label class="right"
+							                                                                               for="pmethod_ezs">Einzahlungsschein</label>
+						</div>
+						<div class="epp-row">
+							<label class=""></label><input type="radio" name="payment_method_cc" value="cc" id="pmethod_cc"
+							                               class=" radio"/><label class="right"
+							                                                      for="pmethod_cc">Kreditkarte</label>
+						</div>
+						<div class="epp-cc-selection hidden">
+							<div class="epp-row">
+								<label class=""></label><input type="radio" name="payment_method" value="vis" id="pmethod_vis"
+								                               class="required radio"/><label class="right"
+								                                                              for="pmethod_vis">Visa</label>
+
+							</div>
+							<div class="epp-row">
+								<label class=""></label><input type="radio" name="payment_method" value="amx" id="pmethod_amx"
+								                               class="required radio"/><label class="right" for="pmethod_amx">American
+								Express</label>
+							</div>
+							<div class="epp-row">
+								<label class=""></label><input type="radio" name="payment_method" value="eca" id="pmethod_eca"
+								                               class="required radio"/><label class="right" for="pmethod_eca">MasterCard</label>
+							</div>
+
+						</div>
+						<div class="epp-row">
+							<label class=""></label><input type="radio" name="payment_method" value="pos" id="pmethod_pos"
+							                               class="required radio"/><label class="right" for="pmethod_pos">PostFinance
+							Card / E-Finance</label>
+						</div>
+						<div class="epp-row">
+							<label class=""></label><input type="radio" name="payment_method" value="sms" id="pmethod_sms"
+							                               class="required radio"/><label class="right"
+							                                                              for="pmethod_sms">SMS</label>
+						</div>
+
+						<div class="epp-row">
+							<label class=""></label><input type="radio" name="payment_method" value="pex" id="pmethod_pex"
+							                               class="required radio"/><label class="right" for="pmethod_pex">PayPal
+							Express Checkout</label>
+						</div>
+					</div>
+					<div class="epp-submit">
+						<input class="epp-btn" type="submit" value="Weiter"/>
+					</div>
+				</div>
+
+
+				<div id="section5" class="section hidden" step="5">
+					<h3>Personalien</h3>
+
+					<div class="section-body">
+						<div class="section-body">
+							<h4>Personlien</h4>
+
+							<div class="epp-row">
+								<label class="long">M&ouml;chten Sie Ihre Personalien angeben? </label><span><input type="radio"
+								                                                                                    value="true"
+								                                                                                    name="anonym"
+								                                                                                    id="anonym_yes"
+								                                                                                    checked="checked"/><label
+									for="anonym_yes" class="right">Ja</label><input class="radio" type="radio" value="false"
+								                                                    name="anonym" id="anonym_no"/><label
+									for="anonym_no">Nein</label></span>
+
+							</div>
+							<div class="address">
+								<div class="epp-row">
+									<label class="long" for="stored_customer_title">Anrede:</label><span><input type="radio"
+									                                                                            name="stored_customer_title"
+									                                                                            value="Frau"
+									                                                                            id="salutation_1"
+									                                                                            class="required radio"/><label
+										class="right" for="salutation_1">Frau</label><input type="radio"
+									                                                        name="stored_customer_title"
+									                                                        value="Herr" class="required radio"
+									                                                        id="salutation_2"/><label
+										for="salutation_2">Herr</label></span>
+								</div>
+								<div class="epp-row">
+									<label class="long" for="stored_customer_firstname">Vorname:</label><input
+										class="text required long" type="text" name="stored_customer_firstname" value=""/>
+
+								</div>
+								<div class="epp-row">
+									<label class="long" for="stored_customer_lastname">Nachname:</label><input
+										class="text required long" type="text" name="stored_customer_lastname" value=""/>
+								</div>
+								<div class="epp-row">
+									<label class="long" for="stored_customer_street">Strasse / Nr.:</label><input type="text"
+									                                                                              class="text required long"
+									                                                                              name="stored_customer_street"
+									                                                                              value=""/>
+								</div>
+								<div class="epp-row">
+
+									<label class="long" for="stored_customer_street2">Adresszusatz:</label><input type="text"
+									                                                                              class="text long"
+									                                                                              name="stored_customer_street2"
+									                                                                              value=""/>
+								</div>
+								<div class="epp-row">
+									<label class="long" for="plzort">PLZ /Ort:</label><input type="text" min="1000" max="99999"
+									                                                         class="span1 digits required"
+									                                                         name="stored_customer_zip_code"
+									                                                         value=""/> <input
+										class=" place required" type="text" name="stored_customer_city" value=""/>
+								</div>
+								<div class="epp-row">
+									<label class="long" for="stored_customer_email">Email:</label><input type="text"
+									                                                                     name="stored_customer_email"
+									                                                                     value=""
+									                                                                     class="long text email required"/>
+
+								</div>
+								<div class="epp-row">
+									<label class="long" for="stored_emailpermission"></label><input class="radio" type="checkbox"
+									                                                                checked="checked"
+									                                                                name="stored_emailpermission"
+									                                                                value="true"
+									                                                                id="emailpermission"/><label
+										for="emailpermission">Ja, ich m&ouml;chte &uuml;ber ihre Arbeit oder Spendem&ouml;glichkeiten
+									per Email informiert werden.</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="epp-submit">
+
+						<input class="epp-btn" type="submit" value="Spenden"/>
+					</div>
+				</div>
+
+
+			</fieldset>
+			<div id="section6" class="section  iframeSection hidden" step="5">
+				<h3>Zahlung</h3>
+
+				<div class="section-body">
+					<div id="iframe_wrapper" class="iframe_wrapper">
+					</div>
+
+				</div>
+			</div>
+
+		</form>
+	</div>
+
+</f:section>
+</html>
