@@ -34,7 +34,8 @@ class PaymentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @return void
 	 */
 	public function newAction() {
-
+		$this->view->assign('settings', $this->settings);
+		$this->view->assign('language', $GLOBALS['TSFE']->config['config']['language']);
 		#$this->view->assign('equipment', $equipment);
 	}
 }

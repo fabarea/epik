@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'epik'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="spendenzweck">Spendenzweck</label>
+			<label index="next">Weiter</label>
+
+			<label index="rhythmus">Rhythmus</label>
+			<label index="please-choose-donation-rate">Bitte wählen Sie die Art ihrer Spende</label>
+			<label index="donation-once">Einmalige Spende</label>
+			<label index="donation-many">Regelmässige Spende</label>
+			<label index="donation-daily">Daily</label>
+			<label index="donation-monthly">Monatlich</label>
+			<label index="donation-3-monthly">3 monatlich</label>
+			<label index="donation-yearly">jährlich</label>
+
+			<label index="spendenbetrag">Spendenbetrag</label>
+			<label index="please-choose-donation-amount">Bitte wählen Sie die Höhe Ihrer Spende</label>
+			<label index="other-amount">Anderer Betrag</label>
+
+			<label index="payment-method">Zahlungsmethode</label>
+			<label index="how-do-you-want-to-pay">Wie wollen Sie spenden?</label>
+			<label index="bill">Einzahlungsschein</label>
+			<label index="credit-card">Kreditkarte</label>
+			<label index="post">PostFinance Card / E-Finance</label>
+
+			<label index="person">Personalien</label>
+			<label index="enter-personal-data">Möchten Sie Ihre Personalien angeben?</label>
+			<label index="yes">Ja</label>
+			<label index="no">Nein</label>
+			<label index="title">Anrede</label>
+			<label index="madam">Frau</label>
+			<label index="mister">Herr</label>
+			<label index="first-name">Vorname</label>
+			<label index="last-name">Nachname</label>
+			<label index="street">Strasse / Nr.</label>
+			<label index="adress2">Adresszusatz</label>
+			<label index="zip">PLZ /Ort</label>
+			<label index="email">Email</label>
+			<label index="condition">Ja, ich möchte über ihre Arbeit oder Spendemöglichkeiten per Email informiert werden.</label>
+			<label index="donate">Spenden</label>
+			<label index="payment">Zahlung</label>
+
+		</languageKey>
+		<languageKey index="fr" type="array">
+			<label index="rhythmus">Rhythmus</label>
+		</languageKey>
+	</data>
+</T3locallang>

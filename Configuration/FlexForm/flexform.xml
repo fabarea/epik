@@ -1,0 +1,120 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<ROOT>
+		<type>array</type>
+		<el>
+			<settings.donationPurposes>
+				<TCEforms>
+					<label>
+						Labels for donation purposes
+					</label>
+					<config>
+						<type>text</type>
+						<default>allgemein | Wo die Hilfe am Dringesten benötigt wird
+schule-und-bildung | Schule und Bildung
+						</default>
+						<eval>trim</eval>
+						<rows>4</rows>
+						<cols>50</cols>
+					</config>
+				</TCEforms>
+			</settings.donationPurposes>
+			<settings.defaultAmounts>
+				<TCEforms>
+					<label>
+						Default amounts
+					</label>
+					<config>
+						<type>text</type>
+						<default>5
+20
+50
+						</default>
+						<eval>trim</eval>
+						<rows>4</rows>
+						<cols>50</cols>
+					</config>
+				</TCEforms>
+			</settings.defaultAmounts>
+			<settings.isBillPayment>
+				<TCEforms>
+					<label>
+						Is "Einzahlungsschein" payment enabled?
+					</label>
+					<config>
+						<type>check</type>
+						<default>1</default>
+					</config>
+				</TCEforms>
+			</settings.isBillPayment>
+			<settings.isVisaPayment>
+				<TCEforms>
+					<label>
+						Is "Visa" payment enabled?
+					</label>
+					<config>
+						<type>check</type>
+						<default>1</default>
+					</config>
+				</TCEforms>
+			</settings.isVisaPayment>
+			<settings.isMasterCardPayment>
+				<TCEforms>
+					<label>
+						Is "Master Card" payment enabled?
+					</label>
+					<config>
+						<type>check</type>
+						<default>1</default>
+					</config>
+				</TCEforms>
+			</settings.isMasterCardPayment>
+			<settings.isAmericanExpressPayment>
+				<TCEforms>
+					<label>
+						Is "American Express" payment enabled?
+					</label>
+					<config>
+						<type>check</type>
+						<default>0</default>
+					</config>
+				</TCEforms>
+			</settings.isAmericanExpressPayment>
+			<settings.isPostPayment>
+				<TCEforms>
+					<label>
+						Is "Post" payment enabled?
+					</label>
+					<config>
+						<type>check</type>
+						<default>1</default>
+					</config>
+				</TCEforms>
+			</settings.isPostPayment>
+			<settings.isSmsPayment>
+				<TCEforms>
+					<label>
+						Is "SMS" payment enabled?
+					</label>
+					<config>
+						<type>check</type>
+						<default>0</default>
+					</config>
+				</TCEforms>
+			</settings.isSmsPayment>
+			<settings.isPayPalPayment>
+				<TCEforms>
+					<label>
+						Is "Pay Pal" payment enabled?
+					</label>
+					<config>
+						<type>check</type>
+						<default>0</default>
+					</config>
+				</TCEforms>
+			</settings.isPayPalPayment>
+		</el>
+	</ROOT>
+</T3DataStructure>
