@@ -46,7 +46,7 @@ class DonationPurposesViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstra
 					list($value, $label) = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode('|', $row);
 
 					$result .= sprintf(
-						'<label class="radio"><input class="radio" type="radio" value="%s" name="stored_campaign" %s/>%s</label>',
+						'<div class="radio"><label><input class="radio" type="radio" value="%s" name="stored_campaign" %s/>%s</label></div>',
 						$value,
 						$separator,
 						$label

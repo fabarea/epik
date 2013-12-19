@@ -38,7 +38,7 @@
 			<label index="first-name">Vorname</label>
 			<label index="last-name">Nachname</label>
 			<label index="street">Strasse / Nr.</label>
-			<label index="adress2">Adresszusatz</label>
+			<label index="address2">Adresszusatz</label>
 			<label index="zip">PLZ /Ort</label>
 			<label index="email">Email</label>
 			<label index="condition">Ja, ich möchte über ihre Arbeit oder Spendemöglichkeiten per Email informiert werden.</label>
@@ -47,7 +47,44 @@
 
 		</languageKey>
 		<languageKey index="fr" type="array">
-			<label index="rhythmus">Rhythmus</label>
+			<label index="spendenzweck">Faire un don</label>
+			<label index="next">Suivant</label>
+
+			<label index="rhythmus">Régularité</label>
+			<label index="please-choose-donation-rate">Chosissez le type de don</label>
+			<label index="donation-once">Don unique</label>
+			<label index="donation-many">Don régulier</label>
+			<label index="donation-daily">Journalier</label>
+			<label index="donation-monthly">Mensuel</label>
+			<label index="donation-3-monthly">Trimestriel</label>
+			<label index="donation-yearly">Annuel</label>
+
+			<label index="spendenbetrag">Montant du don</label>
+			<label index="please-choose-donation-amount">Choisissez le montant</label>
+			<label index="other-amount">Autre montant</label>
+
+			<label index="payment-method">Méthode de payement</label>
+			<label index="how-do-you-want-to-pay">Comment voulez-vous effectuer le don?</label>
+			<label index="bill">Bulletin de versement</label>
+			<label index="credit-card">Carte de crédit</label>
+			<label index="post">PostFinance / E-Finance</label>
+
+			<label index="person">Données personelles</label>
+			<label index="enter-personal-data">Voulez-vous transmettre vos données personelles?</label>
+			<label index="yes">Oui</label>
+			<label index="no">Non</label>
+			<label index="title">Titre</label>
+			<label index="madam">Madame</label>
+			<label index="mister">Monsieur</label>
+			<label index="first-name">Prénom</label>
+			<label index="last-name">Nom</label>
+			<label index="street">Rue / Nr.</label>
+			<label index="address2">Complément d'adresse</label>
+			<label index="zip">NPA / Lieu</label>
+			<label index="email">Email</label>
+			<label index="condition">Oui, je désire m'abonner à la newsletter.</label>
+			<label index="donate">Donner</label>
+			<label index="payment">Paiement</label>
 		</languageKey>
 	</data>
 </T3locallang>

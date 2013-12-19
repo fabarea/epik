@@ -35,45 +35,53 @@
 	</h2>
 
 	<div class="section-body">
-		<h4>
-			<f:translate key="please-choose-donation-rate"/>
-		</h4>
+		<!--<h4>-->
+		<!--<f:translate key="please-choose-donation-rate"/>-->
+		<!--</h4>-->
 
-		<div class="epp-row">
+		<div class="epp-row radio">
 			<label>
 				<input class="radio recurring" type="radio" value="false" name="recurring" checked="checked"
 				       id="type_single"/>
-				<f:translate key="please-choose-donation-rate"/>
+				<f:translate key="donation-once"/>
 			</label>
 		</div>
 
-		<div class="epp-row">
+		<div class="epp-row radio">
 			<label>
 				<input class="radio recurring" type="radio" value="true" name="recurring" id="type_recurring"/>
 				<f:translate key="donation-many"/>
 			</label>
 		</div>
 		<div class="epp-row recurring hidden">
-			<label>
-				<input class="radio" type="radio" value="* * *" name="recurring_interval"
-				       id="recurring_interval_daily"/>
-				<f:translate key="donation-daily"/>
-			</label>
-			<label>
-				<input class="radio" type="radio" checked="checked" value="L * *" name="recurring_interval"
-				       id="recurring_interval_monthly"/>
-				<f:translate key="donation-monthly"/>
-			</label>
-			<label>
-				<input class="radio" type="radio" value="L */3 *" name="recurring_interval"
-				       id="recurring_interval_quarterly"/>
-				<f:translate key="donation-3-monthly"/>
-			</label>
-			<label>
-				<input class="radio" type="radio" value="L * L" name="recurring_interval"
-				       id="recurring_interval_yearly"/>
-				<f:translate key="donation-yearly"/>
-			</label>
+			<div class="radio-inline">
+				<label>
+					<input class="radio" type="radio" value="* * *" name="recurring_interval"
+					       id="recurring_interval_daily"/>
+					<f:translate key="donation-daily"/>
+				</label>
+			</div>
+			<div class="radio-inline">
+				<label>
+					<input class="radio" type="radio" checked="checked" value="L * *" name="recurring_interval"
+					       id="recurring_interval_monthly"/>
+					<f:translate key="donation-monthly"/>
+				</label>
+			</div>
+			<div class="radio-inline">
+				<label>
+					<input class="radio" type="radio" value="L */3 *" name="recurring_interval"
+					       id="recurring_interval_quarterly"/>
+					<f:translate key="donation-3-monthly"/>
+				</label>
+			</div>
+			<div class="radio-inline">
+				<label>
+					<input class="radio" type="radio" value="L * L" name="recurring_interval"
+					       id="recurring_interval_yearly"/>
+					<f:translate key="donation-yearly"/>
+				</label>
+			</div>
 		</div>
 		<div class="epp-row recurring hidden">
 			<label for="stored_customer_email" class="left">Email:</label>
@@ -92,25 +100,28 @@
 	</h2>
 
 	<div class="section-body">
-		<h4>
-			<f:translate key="please-choose-donation-amount"/>
-		</h4>
+		<!--<h4>-->
+		<!--<f:translate key="please-choose-donation-amount"/>-->
+		<!--</h4>-->
 
 		<e:defaultAmounts settings="{settings}"/>
 
-	</div>
-	<div class="epp-row">
-		<label>
-			<input class="radio" type="radio" value="" name="amount" id="amount_free"/>
-			<f:translate key="other-amount"/>
-		</label>
-		<input type="text" name="free_amount" id="free_amount" value="" class="numeric short"
-		       min="1" max="999999" minlength="1"/>
-		<label class="right" for="free_amount"> CHF</label>
-	</div>
+		<div class="epp-row">
 
-	<div class="epp-submit">
-		<input class="btn epp-btn" type="submit" value="{f:translate(key:'next')}"/>
+			<div class="radio-inline">
+				<label>
+					<input class="radio" type="radio" value="" name="amount" id="amount_free"/>
+					<f:translate key="other-amount"/>
+				</label>
+			</div>
+			<input type="text" name="free_amount" id="free_amount" value="" class="numeric short"
+			       min="1" max="999999" minlength="1"/>
+			<label class="right" for="free_amount"> CHF</label>
+		</div>
+
+		<div class="epp-submit">
+			<input class="btn epp-btn" type="submit" value="{f:translate(key:'next')}"/>
+		</div>
 	</div>
 </div>
 
@@ -120,11 +131,11 @@
 	</h2>
 
 	<div class="section-body">
-		<h4>
-			<f:translate key="how-do-you-want-to-pay"/>
-		</h4>
+		<!--<h4>-->
+		<!--<f:translate key="how-do-you-want-to-pay"/>-->
+		<!--</h4>-->
 
-		<div class="epp-row">
+		<div class="epp-row radio">
 			<f:if condition="{settings.isBillPayment}">
 				<input type="radio" checked="checked" name="payment_method" value="ezs"
 				       id="pmethod_ezs" class="required radio"/>
@@ -134,7 +145,7 @@
 				</label>
 			</f:if>
 		</div>
-		<div class="epp-row">
+		<div class="epp-row radio">
 
 			<input type="radio" name="payment_method_cc" value="cc" id="pmethod_cc"
 			       class=" radio"/>
@@ -145,7 +156,7 @@
 		</div>
 		<div class="epp-cc-selection hidden">
 			<f:if condition="{settings.isVisaPayment}">
-				<div class="epp-row">
+				<div class="epp-row radio col-md-offset-1">
 
 					<label class="right">
 						<input type="radio" name="payment_method" value="vis" id="pmethod_vis"
@@ -154,7 +165,7 @@
 				</div>
 			</f:if>
 			<f:if condition="{settings.isAmericanExpressPayment}">
-				<div class="epp-row">
+				<div class="epp-row radio col-md-offset-1">
 					<label class="right">
 						<input type="radio" name="payment_method" value="amx" id="pmethod_amx"
 						       class="required radio"/>
@@ -164,7 +175,7 @@
 			</f:if>
 
 			<f:if condition="{settings.isMasterCardPayment}">
-				<div class="epp-row">
+				<div class="epp-row radio col-md-offset-1">
 					<label class="right">
 						<input type="radio" name="payment_method" value="eca" id="pmethod_eca"
 						       class="required radio"/>
@@ -172,11 +183,10 @@
 					</label>
 				</div>
 			</f:if>
-
 		</div>
 
 		<f:if condition="{settings.isPostPayment}">
-			<div class="epp-row">
+			<div class="epp-row radio">
 				<label class="right">
 					<input type="radio" name="payment_method" value="pos" id="pmethod_pos"
 					       class="required radio"/>
@@ -186,7 +196,7 @@
 			</div>
 		</f:if>
 		<f:if condition="{settings.isSmsPayment}">
-			<div class="epp-row">
+			<div class="epp-row radio">
 				<label class="right">
 					<input type="radio" name="payment_method" value="sms" id="pmethod_sms"
 					       class="required radio"/>
@@ -196,12 +206,12 @@
 		</f:if>
 
 		<f:if condition="{settings.isPayPalPayment}">
-			<div class="epp-row">
+			<div class="epp-row radio">
 				<label class="right">
 					<input type="radio" name="payment_method" value="pex" id="pmethod_pex"
 					       class="required radio"/>
-					PayPal
-					Express Checkout</label>
+					PayPal Express Checkout
+				</label>
 			</div>
 		</f:if>
 	</div>
@@ -223,96 +233,107 @@
 				<label class="long">
 					<f:translate key="enter-personal-data"/>
 				</label>
-				<span>
+
+				<br/>
+				<div class="radio-inline">
 					<label class="right">
 						<input type="radio" value="true" name="anonym" id="anonym_yes" checked="checked"/>
 						<f:translate key="yes"/>
 					</label>
+				</div>
+				<div class="radio-inline">
 					<label for="anonym_no">
 						<input class="radio" type="radio" value="false" name="anonym" id="anonym_no"/>
 						<f:translate key="no"/>
 					</label>
-				</span>
+				</div>
 
 			</div>
 			<div class="address">
-				<div class="epp-row">
+				<div class="epp-row form-group">
 					<label class="long">
 						<f:translate key="title"/>
 					</label>
-					<span>
+
+					<br />
+
+					<div class="radio-inline">
 						<label class="right">
 							<input type="radio" name="stored_customer_title"
-							       value="Frau" id="salutation_1" class="required radio"/>
+							       value="Frau" id="salutation_1" class="required radio" checked/>
 							<f:translate key="madam"/>
 						</label>
+
+						<div class="radio-inline">
+						</div>
 						<label>
 							<input type="radio"
 							       name="stored_customer_title" value="Herr" class="required radio" id="salutation_2"/>
 							<f:translate key="mister"/>
 						</label>
-					</span>
+					</div>
 				</div>
-				<div class="epp-row">
+				<div class="epp-row form-group">
 					<label class="long" for="stored_customer_firstname">
 						<f:translate key="first-name"/>
 					</label>
-					<input class="text required long" type="text" name="stored_customer_firstname"
+					<input class="text required long form-control" type="text" name="stored_customer_firstname"
 					       id="stored_customer_firstname"
 					       value=""/>
 
 				</div>
-				<div class="epp-row">
+				<div class="epp-row form-group">
 					<label class="long" for="stored_customer_lastname">
 						<f:translate key="last-name"/>
 					</label>
-					<input class="text required long" id="stored_customer_lastname" type="text"
+					<input class="text required long form-control" id="stored_customer_lastname" type="text"
 					       name="stored_customer_lastname"
 					       value=""/>
 				</div>
-				<div class="epp-row">
+				<div class="epp-row form-group">
 					<label class="long" for="stored_customer_street">
 						<f:translate key="street"/>
 					</label>
-					<input type="text" id="stored_customer_street" class="text required long" name="stored_customer_street"
+					<input type="text" id="stored_customer_street" class="text required long form-control"
+					       name="stored_customer_street"
 					       value=""/>
 				</div>
-				<div class="epp-row">
+				<div class="epp-row form-group">
 
 					<label class="long" for="stored_customer_street2">
-						<f:translate key="adress2"/>
+						<f:translate key="address2"/>
 					</label>
-					<input type="text" class="text long" name="stored_customer_street2" id="stored_customer_street2"
+					<input type="text" class="text long form-control" name="stored_customer_street2" id="stored_customer_street2"
 					       value=""/>
 				</div>
-				<div class="epp-row">
+				<div class="epp-row form-group">
 					<label class="long" for="plzort">
 						<f:translate key="zip"/>
 					</label>
-					<input type="text" min="1000" max="99999"
-					       class="span1 digits required"
-					       id="plzort"
-					       name="stored_customer_zip_code"
-					       value=""/>
-					<input class=" place required" type="text" name="stored_customer_city" value=""/>
+
+					<div class="form-inline">
+
+						<input type="text" min="1000" max="99999" class="input-sm digits required form-control"
+						       id="plzort" name="stored_customer_zip_code" style="width: 20%; margin-right: 4%" value=""/>
+						<input class=" place required form-control" type="text" name="stored_customer_city"
+						       value="" style="width: 75%;"/>
+					</div>
 				</div>
-				<div class="epp-row">
+				<div class="epp-row form-group">
 					<label class="long" for="stored_customer_email">
 						<f:translate key="email"/>
 					</label>
 					<input type="text" name="stored_customer_email"
-					       value="" class="long text email required"/>
+					       value="" class="long text email required form-control"/>
 
 				</div>
-				<div class="epp-row">
+				<div class="epp-row checkbox">
 					<label class="long" for="stored_emailpermission">
 						<input class="radio" type="checkbox"
 						       id="stored_emailpermission"
 						       checked="checked" name="stored_emailpermission" value="true" id="emailpermission"/>
 						<f:translate key="condition"/>
-
 					</label>
-
 				</div>
 			</div>
 		</div>

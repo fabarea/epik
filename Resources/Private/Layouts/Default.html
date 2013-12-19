@@ -1,10 +1,12 @@
-<link href="{f:uri.resource(path:'StyleSheets/jquery.tipsy.css')}" rel="stylesheet">
 
-<script type="text/javascript" src="{f:uri.resource(path:'JavaScript/jquery.min.js')}"></script>
-<script type="text/javascript" src="{f:uri.resource(path:'JavaScript/jquery.validate.min.js')}"></script>
-<script type="text/javascript" src="{f:uri.resource(path:'JavaScript/jquery.tipsy.js')}"></script>
-<script type="text/javascript" src="{f:uri.resource(path:'JavaScript/epik-0.9.6.js')}"></script>
-<script type="text/javascript" src="{f:uri.resource(path:'JavaScript/jquery.validate.localized.messages.de.js')}"></script>
+<v:asset.style name="jquery-tipsy-style" path="{f:uri.resource(path:'StyleSheets/jquery.tipsy.css')}"/>
+
+<!-- load jquery a second time because of compatibility issue -->
+<v:asset.script name="jquery2" path="{f:uri.resource(path:'JavaScript/jquery.min.js')}"/>
+<v:asset.script name="jquery-validate" path="{f:uri.resource(path:'JavaScript/jquery.validate.min.js')}"/>
+<v:asset.script name="jquery-tipsy" path="{f:uri.resource(path:'JavaScript/jquery.tipsy.js')}"/>
+<v:asset.script name="epik" path="{f:uri.resource(path:'JavaScript/epik-0.9.13.min.js')}"/>
+<v:asset.script name="jquery-validate-localized" path="{f:uri.resource(path:'JavaScript/jquery.validate.localized.messages.{s:languageCode()}.js')}"/>
 
 <script type="text/javascript">
 
@@ -24,7 +26,7 @@ $().ready(function() {
 	epikOptions['trigger_event'] = 'click';
 	epikOptions['auto_submit'] = 'true';
 	epikOptions['currency'] = 'chf';
-	epikOptions['language'] = 'de';
+	epikOptions['language'] = '{s:languageCode()}';
 	epikOptions['iframe_loading_page'] = 'wait.html';
 	epikOptions['popup'] = 'true';
 
@@ -318,3 +320,5 @@ function updateEpikFields() {
 
 
 <f:render section="main" />
+{namespace v=Tx_Vhs_ViewHelpers}
+{namespace s=TYPO3\CMS\Speciality\ViewHelpers}
