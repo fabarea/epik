@@ -53,7 +53,7 @@
 			<label index="rhythmus">Régularité</label>
 			<label index="please-choose-donation-rate">Chosissez le type de don</label>
 			<label index="donation-once">Don unique</label>
-			<label index="donation-many">Don régulier</label>
+			<label index="donation-many">Dons réguliers</label>
 			<label index="donation-daily">Journalier</label>
 			<label index="donation-monthly">Mensuel</label>
 			<label index="donation-3-monthly">Trimestriel</label>
