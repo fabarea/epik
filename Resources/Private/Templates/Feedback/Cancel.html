@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+<f:layout name="Feedback"/>
+
+<f:section name="main">
+
+	<div id="cancelmessage"></div>
+	<script language="javascript" type="text/javascript">
+		var epik = new EPIK("epp");
+		$("#cancelmessage").text("Canceld transaction: " + parseInt(epik.getAmount()) / 100 + " " + epik.getCurrency() + " via " + epik.getPaymentMethod());
+
+		//To delete all data from the processed transaction.
+		epik.deleteData();
+
+	</script>
+</f:section>
+</html>

@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+<f:layout name="Feedback"/>
+
+<f:section name="main">
+
+	<div id="errormessage"></div>
+	<script language="javascript" type="text/javascript">
+		var epik = new EPIK("epp");
+		//error-0 will be deprecated in Release 0.10.0, use error-detail instead
+		alert(epik.getQueryParamValueFromUrl("error-0"));
+		$("#errormessage").text("Could not process transaction. An error occured. " + parseFloat(epik.getAmount()) / 100 + " " + epik.getCurrency() + " via " + epik.getPaymentMethod());
+	</script>
+
+</f:section>
+</html>

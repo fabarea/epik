@@ -6,7 +6,7 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 	'Pi1',
 	array(
 		'Payment' => 'new, show, create, edit, update',
-		'Feedback' => 'show',
+		'Feedback' => 'wait, error, cancel, success',
 	),
 	// non-cacheable actions
 	array(

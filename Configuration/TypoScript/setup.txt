@@ -9,9 +9,106 @@ plugin.tx_epik {
 	}
 
 	settings {
+		rootPageUid = 1
 	}
 	features {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
 	}
 }
+
+
+##########################
+# Wait feedback
+##########################
+page_1387446340 = PAGE
+page_1387446340 {
+    typeNum = 1387446340
+    config {
+        xhtml_cleaning = 0
+        admPanel = 0
+    }
+    10 = USER
+    10 {
+        userFunc = tx_extbase_core_bootstrap->run
+        extensionName = Epik
+        pluginName = Pi1
+		switchableControllerActions {
+			Feedback {
+				1 = wait
+			}
+		}
+    }
+}
+
+##########################
+# Error feedback
+##########################
+page_1387446341 = PAGE
+page_1387446341 {
+    typeNum = 1387446341
+    config {
+        xhtml_cleaning = 0
+        admPanel = 0
+    }
+    10 = USER
+    10 {
+        userFunc = tx_extbase_core_bootstrap->run
+        extensionName = Epik
+        pluginName = Pi1
+		switchableControllerActions {
+			Feedback {
+				1 = error
+			}
+		}
+    }
+}
+
+
+##########################
+# Cancel feedback
+##########################
+page_1387446342 = PAGE
+page_1387446342 {
+    typeNum = 1387446342
+    config {
+        xhtml_cleaning = 0
+        admPanel = 0
+    }
+    10 = USER
+    10 {
+        userFunc = tx_extbase_core_bootstrap->run
+        extensionName = Epik
+        pluginName = Pi1
+		switchableControllerActions {
+			Feedback {
+				1 = cancel
+			}
+		}
+    }
+}
+
+##########################
+# Success feedback
+##########################
+page_1387446343 = PAGE
+page_1387446343 {
+    typeNum = 1387446343
+    config {
+        xhtml_cleaning = 0
+        admPanel = 0
+    }
+    10 = USER
+    10 {
+        userFunc = tx_extbase_core_bootstrap->run
+        extensionName = Epik
+        pluginName = Pi1
+		switchableControllerActions {
+			Feedback {
+				1 = success
+			}
+		}
+    }
+}
+
+

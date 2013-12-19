@@ -33,9 +33,29 @@ class FeedbackController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	/**
 	 * @return void
 	 */
-	public function newAction() {
+	public function waitAction() {
 
-		#$this->view->assign('equipment', $equipment);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function errorAction() {
+
+	}
+
+	/**
+	 * @return void
+	 */
+	public function cancelAction() {
+
+	}
+
+	/**
+	 * @return void
+	 */
+	public function successAction() {
+
 	}
 }
 ?>

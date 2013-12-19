@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+<f:layout name="Feedback"/>
+
+<f:section name="main">
+
+	<div id="successmessage"></div>
+	<!-- To show the SMS Counter you have to tell EPIK where to render the Count-Down-Widget -->
+	<div id="smscounter"></div>
+	<script language="javascript" type="text/javascript">
+		var epik = new EPIK("epp");
+		$("#successmessage").text(parseInt(epik.getAmount()) / 100 + " " + epik.getCurrency() + " via " + epik.getPaymentMethod() + "epp transaction id " + epik.getQueryParamValueFromUrl("epp_transaction_id"));
+
+		//show Count-Down-Widget if payement method was sms
+		if (epik.getPaymentMethod() == "sms") {
+			var tmpTrId = epik.getQueryParamValueFromUrl("epp_transaction_id");
+			//Merchant transaction id could also be used.
+			//tmpTrId = epik.getTransactionId();
+			epik.waitForConfirmation({
+				start_minutes: 59,
+				start_seconds: 59,
+				container_id: "smscounter",
+				timedout: function() {
+					alert("time is up");
+				},
+				//or use if defined: merchant_transaction_id: tmpTrId,
+				epp_transaction_id: tmpTrId,
+				confirmed: function() {
+					alert("confirmed");
+				},
+				declined: function() {
+					alert("cancelled");
+				},
+				interval: 5
+			});
+		}
+		// Retrieves the mobile number of the customer returned as query parameter
+		epik.getQueryParamValueFromUrl("smspayment_msisdn");
+		//To delete data all from the processed transaction.
+		epik.deleteData();
+
+	</script>
+
+</f:section>
+</html>

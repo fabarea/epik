@@ -12,11 +12,12 @@
 
 var epik;
 $().ready(function() {
-	var epikOptions = new Object();
-	epikOptions['error_url'] = 'http://localhost/epik/demo/error.html';
-	epikOptions['cancel_url'] = 'http://localhost/epik/demo/cancel.html';
-	epikOptions['success_url'] = 'http://localhost/epik/demo/success.html';
-	epikOptions['pollstatus_url'] = 'http://localhost/epik/demo/pollstatus.php';
+	var epikOptions = {};
+	epikOptions['iframe_loading_page'] = '{f:uri.page(pageUid: "{settings.rootPageUid}", absolute: "true")}?type=1387446340';
+	epikOptions['error_url'] = '{f:uri.page(pageUid: "{settings.rootPageUid}", absolute: "true")}?type=1387446341';
+	epikOptions['cancel_url'] = '{f:uri.page(pageUid: "{settings.rootPageUid}", absolute: "true")}?type=1387446342';
+	epikOptions['success_url'] = '{f:uri.page(pageUid: "{settings.rootPageUid}", absolute: "true")}?type=1387446343';
+	//epikOptions['pollstatus_url'] = '{f:uri.page(pageUid: "{settings.rootPageUid}", absolute: "true")}?type=1387446344' // not implemented
 	epikOptions['apiendpoint'] = 'https://dds-pay.getunik.net/epayment/api/step/pay/merchant/XXXXXXXXXX';
 	epikOptions['test_mode'] = 'true';
 	epikOptions['method'] = 'POST';
@@ -27,7 +28,6 @@ $().ready(function() {
 	epikOptions['auto_submit'] = 'true';
 	epikOptions['currency'] = 'chf';
 	epikOptions['language'] = '{s:languageCode()}';
-	epikOptions['iframe_loading_page'] = 'wait.html';
 	epikOptions['popup'] = 'true';
 
 	epik = new EPIK("epp", epikOptions);
