@@ -47,46 +47,48 @@
 			</label>
 		</div>
 
-		<div class="epp-row radio">
-			<label>
-				<input class="radio recurring" type="radio" value="true" name="recurring" id="type_recurring"/>
-				<f:translate key="donation-many"/>
-			</label>
-		</div>
-		<div class="epp-row recurring hidden">
-			<div class="radio-inline">
+		<f:if condition="{settings.enableRecurringPayment}">
+			<div class="epp-row radio">
 				<label>
-					<input class="radio" type="radio" value="* * *" name="recurring_interval"
-					       id="recurring_interval_daily"/>
-					<f:translate key="donation-daily"/>
+					<input class="radio recurring" type="radio" value="true" name="recurring" id="type_recurring"/>
+					<f:translate key="donation-many"/>
 				</label>
 			</div>
-			<div class="radio-inline">
-				<label>
-					<input class="radio" type="radio" checked="checked" value="L * *" name="recurring_interval"
-					       id="recurring_interval_monthly"/>
-					<f:translate key="donation-monthly"/>
-				</label>
+			<div class="epp-row recurring hidden">
+				<div class="radio-inline">
+					<label>
+						<input class="radio" type="radio" value="* * *" name="recurring_interval"
+						       id="recurring_interval_daily"/>
+						<f:translate key="donation-daily"/>
+					</label>
+				</div>
+				<div class="radio-inline">
+					<label>
+						<input class="radio" type="radio" checked="checked" value="L * *" name="recurring_interval"
+						       id="recurring_interval_monthly"/>
+						<f:translate key="donation-monthly"/>
+					</label>
+				</div>
+				<div class="radio-inline">
+					<label>
+						<input class="radio" type="radio" value="L */3 *" name="recurring_interval"
+						       id="recurring_interval_quarterly"/>
+						<f:translate key="donation-3-monthly"/>
+					</label>
+				</div>
+				<div class="radio-inline">
+					<label>
+						<input class="radio" type="radio" value="L * L" name="recurring_interval"
+						       id="recurring_interval_yearly"/>
+						<f:translate key="donation-yearly"/>
+					</label>
+				</div>
 			</div>
-			<div class="radio-inline">
-				<label>
-					<input class="radio" type="radio" value="L */3 *" name="recurring_interval"
-					       id="recurring_interval_quarterly"/>
-					<f:translate key="donation-3-monthly"/>
-				</label>
+			<div class="epp-row recurring hidden">
+				<label for="stored_customer_email" class="left">Email:</label>
+				<input class="" type="text" value="" name="stored_customer_email" id="stored_customer_email"/>
 			</div>
-			<div class="radio-inline">
-				<label>
-					<input class="radio" type="radio" value="L * L" name="recurring_interval"
-					       id="recurring_interval_yearly"/>
-					<f:translate key="donation-yearly"/>
-				</label>
-			</div>
-		</div>
-		<div class="epp-row recurring hidden">
-			<label for="stored_customer_email" class="left">Email:</label>
-			<input class="" type="text" value="" name="stored_customer_email" id="stored_customer_email"/>
-		</div>
+		</f:if>
 	</div>
 	<div class="epp-submit">
 		<input class="btn epp-btn" type="submit" value="{f:translate(key:'next')}"/>
@@ -235,6 +237,7 @@
 				</label>
 
 				<br/>
+
 				<div class="radio-inline">
 					<label class="right">
 						<input type="radio" value="true" name="anonym" id="anonym_yes" checked="checked"/>
@@ -255,7 +258,7 @@
 						<f:translate key="title"/>
 					</label>
 
-					<br />
+					<br/>
 
 					<div class="radio-inline">
 						<label class="right">

@@ -38,6 +38,17 @@ schule-und-bildung | Schule und Bildung
 					</config>
 				</TCEforms>
 			</settings.defaultAmounts>
+			<settings.enableRecurringPayment>
+				<TCEforms>
+					<label>
+						Enable recurring payment
+					</label>
+					<config>
+						<type>check</type>
+						<default>0</default>
+					</config>
+				</TCEforms>
+			</settings.enableRecurringPayment>
 			<settings.isBillPayment>
 				<TCEforms>
 					<label>
