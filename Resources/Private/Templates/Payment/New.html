@@ -9,6 +9,10 @@
 	.section h2 {
 		cursor: pointer;
 	}
+
+	.iframe_wrapper {
+		height: 500px;
+	}
 </style>
 <form method="post" id="epp" action="">
 <div class="epp-form-wrapper row-fluid">
@@ -231,27 +235,6 @@
 	<div class="section-body">
 		<div class="section-body">
 
-			<div class="epp-row">
-				<label class="long">
-					<f:translate key="enter-personal-data"/>
-				</label>
-
-				<br/>
-
-				<div class="radio-inline">
-					<label class="right">
-						<input type="radio" value="true" name="anonym" id="anonym_yes" checked="checked"/>
-						<f:translate key="yes"/>
-					</label>
-				</div>
-				<div class="radio-inline">
-					<label for="anonym_no">
-						<input class="radio" type="radio" value="false" name="anonym" id="anonym_no"/>
-						<f:translate key="no"/>
-					</label>
-				</div>
-
-			</div>
 			<div class="address">
 				<div class="epp-row form-group">
 					<label class="long">
