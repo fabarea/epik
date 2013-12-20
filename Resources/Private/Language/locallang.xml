@@ -41,7 +41,7 @@
 			<label index="address2">Adresszusatz</label>
 			<label index="zip">PLZ /Ort</label>
 			<label index="email">Email</label>
-			<label index="condition">Ja, ich möchte über ihre Arbeit oder Spendemöglichkeiten per Email informiert werden.</label>
+			<label index="condition">Ja, ich möchte über Ihre Arbeit informiert werden. Senden Sie mir Ihren Newsletter (erfordert Angabe der Mail-Adresse).</label>
 			<label index="donate">Spenden</label>
 			<label index="payment">Zahlung</label>
 
@@ -82,7 +82,7 @@
 			<label index="address2">Complément d'adresse</label>
 			<label index="zip">NPA / Lieu</label>
 			<label index="email">Email</label>
-			<label index="condition">Oui, je désire m'abonner à la newsletter.</label>
+			<label index="condition">Oui, je désire être informé de votre travail et m'abonne à la newsletter.</label>
 			<label index="donate">Donner</label>
 			<label index="payment">Paiement</label>
 		</languageKey>
