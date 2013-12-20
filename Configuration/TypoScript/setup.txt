@@ -10,6 +10,7 @@ plugin.tx_epik {
 
 	settings {
 		rootPageUid = 1
+		merchant = XYZ
 	}
 	features {
 		# uncomment the following line to enable the new Property Mapper.
