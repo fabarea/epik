@@ -44,7 +44,7 @@ class DefaultAmountsViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstract
 			foreach ($rows as $row) {
 				if (trim($row) != '') {
 					$result .= sprintf(
-						'<div class="radio-inline"><label><input class="radio " type="radio" value="%s" name="amount" checked="checked" %s/>CHF %s</label></div>',
+						'<div class="radio-inline"><label><input class="radio " type="radio" value="%s" name="amount" %s/>CHF %s</label></div>',
 						$row * 100,
 						$separator,
 						$row

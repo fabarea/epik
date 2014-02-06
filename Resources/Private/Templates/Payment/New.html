@@ -141,16 +141,16 @@
 		<!--<f:translate key="how-do-you-want-to-pay"/>-->
 		<!--</h4>-->
 
-		<div class="epp-row radio">
-			<f:if condition="{settings.isBillPayment}">
+		<f:if condition="{settings.isBillPayment}">
+			<div class="epp-row radio">
 				<input type="radio" checked="checked" name="payment_method" value="ezs"
 				       id="pmethod_ezs" class="required radio"/>
 				<label class="right"
 				       for="pmethod_ezs">
 					<f:translate key="bill"/>
 				</label>
-			</f:if>
-		</div>
+			</div>
+		</f:if>
 		<div class="epp-row radio">
 
 			<input type="radio" name="payment_method_cc" value="cc" id="pmethod_cc"
@@ -310,7 +310,7 @@
 						<f:translate key="email"/>
 					</label>
 					<input type="text" name="stored_customer_email"
-					       value="" class="long text email required form-control"/>
+					       value="" class="long text email form-control"/>
 
 				</div>
 				<div class="epp-row checkbox">

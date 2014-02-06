@@ -75,8 +75,8 @@ $().ready(function() {
 		var currentSection = $(this).parents("div.section");
 		var step = currentSection.attr("step");
 		if (step == "1") {
-			var nextSection = $("#section2");
-		} else if (step == "2") {
+			var nextSection = $("#section3"); // decrement -1 here to bring the "rhythmus" step back.
+		} else if (step == "2") { // will never be true because of comment above.
 			var nextSection = $("#section3");
 		} else if (step == "3") {
 			var nextSection = $("#section4");
