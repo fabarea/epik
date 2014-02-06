@@ -264,7 +264,7 @@
 						<f:translate key="first-name"/>
 					</label>
 					<input class="text required long form-control" type="text" name="stored_customer_firstname"
-					       id="stored_customer_firstname"
+					       id="stored_customer_firstname" value=""
 					       value=""/>
 
 				</div>
@@ -273,7 +273,7 @@
 						<f:translate key="last-name"/>
 					</label>
 					<input class="text required long form-control" id="stored_customer_lastname" type="text"
-					       name="stored_customer_lastname"
+					       name="stored_customer_lastname" value=""
 					       value=""/>
 				</div>
 				<div class="epp-row form-group">
@@ -281,7 +281,7 @@
 						<f:translate key="street"/>
 					</label>
 					<input type="text" id="stored_customer_street" class="text required long form-control"
-					       name="stored_customer_street"
+					       name="stored_customer_street" value=""
 					       value=""/>
 				</div>
 				<div class="epp-row form-group">
@@ -289,8 +289,8 @@
 					<label class="long" for="stored_customer_street2">
 						<f:translate key="address2"/>
 					</label>
-					<input type="text" class="text long form-control" name="stored_customer_street2" id="stored_customer_street2"
-					       value=""/>
+					<input type="text" value=""
+					       class="text long form-control" name="stored_customer_street2" id="stored_customer_street2"/>
 				</div>
 				<div class="epp-row form-group">
 					<label class="long" for="plzort">
@@ -299,18 +299,21 @@
 
 					<div class="form-inline">
 
-						<input type="text" min="1000" max="99999" class="input-sm digits required form-control"
-						       id="plzort" name="stored_customer_zip_code" style="width: 20%; margin-right: 4%" value=""/>
-						<input class=" place required form-control" type="text" name="stored_customer_city"
-						       value="" style="width: 75%;"/>
+						<input type="text" value=""
+						       min="1000" max="99999" class="input-sm digits required form-control"
+						       id="plzort" name="stored_customer_zip_code" style="width: 20%; margin-right: 4%"/>
+						<input class=" place required form-control" value=""
+						       type="text" name="stored_customer_city"
+						       style="width: 75%;"/>
 					</div>
 				</div>
 				<div class="epp-row form-group">
 					<label class="long" for="stored_customer_email">
 						<f:translate key="email"/>
 					</label>
-					<input type="text" name="stored_customer_email"
-					       value="" class="long text email form-control"/>
+					<input type="text" value=""
+					       name="stored_customer_email"
+					       class="long text email form-control"/>
 
 				</div>
 				<div class="epp-row checkbox">

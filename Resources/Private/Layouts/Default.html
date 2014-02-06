@@ -254,6 +254,9 @@ $().ready(function() {
 
 	initform(donationform);
 
+	if (epikOptions['test_mode']) {
+		$('.message-test-mode').show();
+	}
 });
 
 function moveTipsy() {
@@ -319,6 +322,7 @@ function updateEpikFields() {
 </script>
 
 
+<strong style="color: red; display: none" class="message-test-mode">TEST MODE ACTIVATED. TRANSACTIONS WILL BE FAKED. USE TEST CREDIT CARD INSTEAD.</strong>
 <f:render section="main" />
 {namespace v=Tx_Vhs_ViewHelpers}
 {namespace s=TYPO3\CMS\Speciality\ViewHelpers}
