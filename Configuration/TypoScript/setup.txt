@@ -10,6 +10,7 @@ plugin.tx_epik {
 
 	settings {
 		rootPageUid = 1
+		testMode = true
 		merchant = XYZ
 	}
 	features {

@@ -19,7 +19,7 @@ $().ready(function() {
 	epikOptions['success_url'] = '{f:uri.page(pageUid: "{settings.rootPageUid}", absolute: "true")}?type=1387446343';
 	//epikOptions['pollstatus_url'] = '{f:uri.page(pageUid: "{settings.rootPageUid}", absolute: "true")}?type=1387446344' // not implemented
 	epikOptions['apiendpoint'] = 'https://dds-pay.getunik.net/epayment/api/step/pay/merchant/{settings.merchant}';
-	epikOptions['test_mode'] = 'true';
+	epikOptions['test_mode'] = '{settings.testMode}';
 	epikOptions['method'] = 'POST';
 	epikOptions['mobile_mode'] = 'false';
 	epikOptions['enable_jquery'] = 'true';
