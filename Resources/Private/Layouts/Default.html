@@ -321,8 +321,9 @@ function updateEpikFields() {
 
 </script>
 
-
-<strong style="color: red; display: none" class="message-test-mode">TEST MODE ACTIVATED. TRANSACTIONS WILL BE FAKED. USE TEST CREDIT CARD INSTEAD.</strong>
+<f:if condition="{settings.testMode} == 'true'">
+	<strong style="color: red; display: none" class="message-test-mode">TEST MODE ACTIVATED. TRANSACTIONS WILL BE FAKED. USE TEST CREDIT CARD INSTEAD.</strong>
+</f:if>
 <f:render section="main" />
 {namespace v=Tx_Vhs_ViewHelpers}
 {namespace s=TYPO3\CMS\Speciality\ViewHelpers}
