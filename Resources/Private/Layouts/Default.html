@@ -138,14 +138,13 @@ $().ready(function() {
 	$("#free_amount").bind("keyup", function() {
 		var tempAmount = $("#free_amount").val() + "00";
 		$("#amount_free").val(tempAmount);
-		if (tempAmount == 500 || tempAmount == 2000 || tempAmount == 5000) {
-			epik.options.amount = tempAmount;
-		} else {
-			epik.setAmount(tempAmount);
-		}
-
+		epik.options.amount = tempAmount;
+//		if (tempAmount == 500 || tempAmount == 2000 || tempAmount == 5000) {
+//		    epik.options.amount = tempAmount;
+//		} else {
+//			epik.setAmount(tempAmount);
+//		}
 	});
-
 
 	$("#section4 div.epp-row input").bind("change", function() {
 		var ccSelection = $(".epp-cc-selection");
